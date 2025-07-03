@@ -52,7 +52,7 @@ native-image --version
 
 # Test the JAR first
 echo "Testing JAR before building native image..."
-java -cp "target/classes:$PICOCLI_JAR" nl.appall.jkill.Jkill --help
+java -cp "target/classes:$PICOCLI_JAR" nl.appall.Jkill --help
 
 if [ $? -ne 0 ]; then
     echo "Error: JAR test failed. Cannot proceed with native-image."
@@ -66,7 +66,7 @@ native-image \
     -cp "target/classes:$PICOCLI_JAR" \
     --no-fallback \
     -H:Name=jkill \
-    -H:Class=nl.appall.jkill.Jkill \
+    -H:Class=nl.appall.Jkill \
     -H:Path=target \
     --verbose
 
@@ -76,7 +76,7 @@ if [ $? -ne 0 ]; then
     native-image \
         -cp "target/classes:$PICOCLI_JAR" \
         -H:Name=jkill \
-        -H:Class=nl.appall.jkill.Jkill \
+        -H:Class=nl.appall.Jkill \
         -H:Path=target \
         --verbose
 fi

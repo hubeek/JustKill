@@ -4,10 +4,10 @@ setlocal enabledelayedexpansion
 echo Building jkill using direct native-image (bypassing Maven plugin)...
 
 REM Check if source is in Maven structure
-if not exist "src\main\java\nl\appall\jkill\Jkill.java" (
+if not exist "src\main\java\nl\appall\Jkill.java" (
     echo Moving to Maven structure...
     mkdir src\main\java 2>nul
-    if exist "nl\appall\jkill\Jkill.java" (
+    if exist "nl\appall\Jkill.java" (
         move nl src\main\java\
         echo Moved nl\ to src\main\java\
     ) else (
@@ -21,7 +21,7 @@ echo Using Maven to compile Java and resolve dependencies...
 call mvn clean compile dependency:copy-dependencies
 
 REM Check if compilation was successful
-if not exist "target\classes\nl\appall\jkill\Jkill.class" (
+if not exist "target\classes\nl\appall\Jkill.class" (
     echo Error: Maven compilation failed.
     exit /b 1
 )
@@ -59,7 +59,7 @@ native-image --version
 
 REM Test the JAR first
 echo Testing JAR before building native image...
-java -cp "target\classes;%PICOCLI_JAR%" nl.appall.jkill.Jkill --help
+java -cp "target\classes;%PICOCLI_JAR%" nl.appall.Jkill --help
 
 if %errorlevel% neq 0 (
     echo Error: JAR test failed. Cannot proceed with native-image.
@@ -73,7 +73,7 @@ native-image ^
     -cp "target\classes;%PICOCLI_JAR%" ^
     --no-fallback ^
     -H:Name=jkill ^
-    -H:Class=nl.appall.jkill.Jkill ^
+    -H:Class=nl.appall.Jkill ^
     -H:Path=target ^
     --verbose
 
@@ -83,7 +83,7 @@ if %errorlevel% neq 0 (
     native-image ^
         -cp "target\classes;%PICOCLI_JAR%" ^
         -H:Name=jkill ^
-        -H:Class=nl.appall.jkill.Jkill ^
+        -H:Class=nl.appall.Jkill ^
         -H:Path=target ^
         --verbose
 )
