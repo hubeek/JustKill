@@ -1,6 +1,6 @@
-# Jkill
+# Justkill
 
-Jkill is a cross-platform command-line utility that kills processes running on a specified port. It's useful for developers who need to quickly free up ports that are being used by other applications.
+Justkill is a cross-platform command-line utility that kills processes running on a specified port. It's useful for developers who need to quickly free up ports that are being used by other applications.
 
 ## Features
 
@@ -104,7 +104,10 @@ Jkill uses different approaches depending on the operating system:
 
 ## License
 
-[MIT License](LICENSE)
+This project is licensed under the [MIT License](LICENSE).
+
+You are free to use, modify, and distribute this tool.
+If you use it in your own projects or redistribute it, attribution is appreciated (e.g., a mention in your README or documentation), but not required.
 
 ## Contributing
 
