@@ -10,7 +10,7 @@ Justkill is a cross-platform command-line utility that kills processes running o
 
 ## Requirements
 
-- Java 17 or higher (for running from source or JAR)
+- Java 21 or higher (for running from source or JAR)
 - GraalVM with native-image tool (for building native executable)
 - On Unix-like systems: `lsof` command
 - On Windows: `netstat` and `taskkill` commands (included in standard Windows installations)
